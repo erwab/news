@@ -8,7 +8,7 @@ $this->load->view ('v_bandeau' );
 	<?php
 /* création de la balise <form> avec form_open*/
 	/* form_open() génère la balise <form> avec attribut action renseigné par le paramètre */
-	echo form_open ( '/c_news/ajouter_news' );
+	echo form_open ( '/c_news/verif_form_ajouter_news' );
 	?>
     <div>
 	<?php
@@ -36,7 +36,7 @@ $this->load->view ('v_bandeau' );
 	$data = array(                    /* $data contient les paramètres nécessaires */
 		'name' => 'titre',           /* pour la balise input  */
 		'id' => 'titre',
-		'maxlength' => '30',
+		'maxlength' => '100',
 		'size' => '25'   /* pour la longueur du champ de saisie  */
 	);
 /* définition d'une zone de saisie avec form_input (voir remarque) */

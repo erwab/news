@@ -48,6 +48,26 @@ $data=$this->m_news->ajouter($_POST['auteur'],$_POST['titre'],$_POST['contenu'])
 $this->lister_news();
 }
 
+function verif_form_ajouter_news(){
+//	Chargement de la bibliothèque qu'on peut aussi charger en autoload
+$this->load->library('form_validation');
+//	Définition des règles de validation pour auteur
+$this->form_validation->set_rules('auteur', 'Nom de l\'auteur', 'trim|required|min_length[5]|max_length[30]|alpha_dash');
+$this->form_validation->set_rules('titre', 'Titre', 'trim|required|min_length[5]|max_length[100]|alpha_dash');
+$this->form_validation->set_rules('contenu', 'Contenu', 'trim|alpha_dash');
+if($this->form_validation->run())
+	{
+		// Si run() return true, le formulaire est valide (les champs sont conformes aux règles: on indique l'action à exécuter
+		$this->ajouter_news();
+	}
+else
+	{
+		// Le formulaire est invalide ou vide, il faut le recharger
+		$this->form_ajouter_news();
+	}
+
+}
+
 }
 /* End of file c_news.php */
 /* Location: ./application/controllers/c_news.php */
