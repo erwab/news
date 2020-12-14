@@ -8,7 +8,7 @@ $this->accueil();
 function accueil () {
 $this->load->model('m_news');
 $data=$this->m_news->get_info();
-$this->load->view('v_news',$data); // $data transmis à la vue v_news
+$this->load->view('v_accueil',$data); // $data transmis à la vue v_news
 }
 
 function testAjout() {
@@ -36,6 +36,16 @@ function lister_news(){
 $this->load->model('m_news');
 $data['liste']=$this->m_news->lister();
 $this->load->view('v_lister',$data); // $data transmis à la vue v_lister
+}
+
+function form_ajouter_news(){
+$this->load->view('v_ajout');
+}
+
+function ajouter_news(){
+$this->load->model('m_news');
+$data=$this->m_news->ajouter($_POST['auteur'],$_POST['titre'],$_POST['contenu']);
+$this->lister_news();
 }
 
 }
