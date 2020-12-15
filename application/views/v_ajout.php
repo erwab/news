@@ -10,7 +10,7 @@ $this->load->view ('v_bandeau' );
 	/* form_open() génère la balise <form> avec attribut action renseigné par le paramètre */
 	echo form_open ( '/c_news/verif_form_ajouter_news' );
 	?>
-    <div>
+    <div class="form-group">
 	<?php
 	/* form_error() permet d'afficher l'erreur de validation du champ passé en paramètre */
 	echo form_error ( 'auteur' );
@@ -20,14 +20,15 @@ $this->load->view ('v_bandeau' );
 		'name' => 'auteur',           /* pour la balise input  */
 		'id' => 'auteur',
 		'maxlength' => '30',
-		'size' => '25'   /* pour la longueur du champ de saisie  */
+		'size' => '25',   /* pour la longueur du champ de saisie  */
+		'value' => set_value('auteur')
 	);
 /* définition d'une zone de saisie avec form_input (voir remarque) */
 	echo form_input ( $data ); /* génère une balise input de type text à l'aide du contenu de $data */
 	?>
 	</div>
 	<!-- à vous de compléter -->
-	<div>
+	<div class="form-group">
 	<?php
 	/* form_error() permet d'afficher l'erreur de validation du champ passé en paramètre */
 	echo form_error ( 'titre' );
@@ -37,13 +38,14 @@ $this->load->view ('v_bandeau' );
 		'name' => 'titre',           /* pour la balise input  */
 		'id' => 'titre',
 		'maxlength' => '100',
-		'size' => '25'   /* pour la longueur du champ de saisie  */
+		'size' => '25',   /* pour la longueur du champ de saisie  */
+		'value' => set_value('titre')
 	);
 /* définition d'une zone de saisie avec form_input (voir remarque) */
 	echo form_input ( $data ); /* génère une balise input de type text à l'aide du contenu de $data */
 	?>
 	</div>
-	<div>
+	<div class="form-group">
 	<?php
 	/* form_error() permet d'afficher l'erreur de validation du champ passé en paramètre */
 	echo form_error ( 'contenu' );
@@ -53,7 +55,8 @@ $this->load->view ('v_bandeau' );
 		'name' => 'contenu',           /* pour la balise input  */
 		'id' => 'contenu',
 		'maxlength' => '30',
-		'size' => '25'   /* pour la longueur du champ de saisie  */
+		'size' => '25',   /* pour la longueur du champ de saisie  */
+		'value' => set_value('contenu')
 	);
 /* définition d'une zone de saisie avec form_input (voir remarque) */
 	echo form_input ( $data ); /* génère une balise input de type text à l'aide du contenu de $data */
